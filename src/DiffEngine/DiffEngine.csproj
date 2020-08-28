@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>LoxSmoke.DiffEngine</PackageId>
+    <Authors>LoxSmoke</Authors>
+    <Company>LoxSmoke</Company>
+    <Copyright>Copyright 2020 LoxSmoke</Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/loxsmoke/DiffEngine</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/loxsmoke/DiffEngine</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>diff diffengine loxsmoke</PackageTags>
+    <RootNamespace>LoxSmoke.DiffEngine</RootNamespace>
+    <Version>0.0.1-prerelease</Version>
+    <Description>Extensible diff library for text, json and XML</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AssemblyVersion>0.0.1.0</AssemblyVersion>
+    <FileVersion>0.0.1.0</FileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>DiffEngine.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>DiffEngine.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+</Project>

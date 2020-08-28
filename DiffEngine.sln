@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffEngine", "src\DiffEngine\DiffEngine.csproj", "{844071CC-63A0-406A-B4DA-64C55551C6A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiffEngineTests", "test\DiffEngineTests\DiffEngineTests.csproj", "{CDFD16F8-5129-4642-B857-9518651B4BF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{844071CC-63A0-406A-B4DA-64C55551C6A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{844071CC-63A0-406A-B4DA-64C55551C6A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{844071CC-63A0-406A-B4DA-64C55551C6A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{844071CC-63A0-406A-B4DA-64C55551C6A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDFD16F8-5129-4642-B857-9518651B4BF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDFD16F8-5129-4642-B857-9518651B4BF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDFD16F8-5129-4642-B857-9518651B4BF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDFD16F8-5129-4642-B857-9518651B4BF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB15DCA5-6777-4E91-8674-B64A0FA82ED9}
+	EndGlobalSection
+EndGlobal
