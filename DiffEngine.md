@@ -1,7 +1,7 @@
 # DiffEngine.dll v.0.0.1.0 API documentation
 
 Created by 
-[mddox](https://github.com/loxsmoke/mddox) on 8/28/2020
+[mddox](https://github.com/loxsmoke/mddox) on 8/29/2020
 
 # All types
 
@@ -30,8 +30,8 @@ Generic difference finder. Compares two sequences of elements and finds equaliti
 
 | Name | Returns | Summary |
 |---|---|---|
-| **Bisect(T sequence1, T sequence2)** | [DiffOperationList\<T\>](#diffoperationlistt-class)\<T\> | Find the 'middle snake' of a diff, split the problem in two<br>and return the recursively constructed diff.<br>See Myers 1986 paper: An O(ND) Difference Algorithm and Its Variations. |
-| **CreateDiffList(T sequence1, T sequence2)** | [DiffOperationList\<T\>](#diffoperationlistt-class)\<T\> | Find the differences between two sequences. |
+| **Bisect(T sequence1, T sequence2)** | [DiffOperationList](#diffoperationlistt-class)\<T\> | Find the 'middle snake' of a diff, split the problem in two<br>and return the recursively constructed diff.<br>See Myers 1986 paper: An O(ND) Difference Algorithm and Its Variations. |
+| **CreateDiffList(T sequence1, T sequence2)** | [DiffOperationList](#diffoperationlistt-class)\<T\> | Find the differences between two sequences. |
 | **HalfMatch(T sequence1, T sequence2)** | MatchStruct |  |
 # DiffOperation<T> Class
 
@@ -58,11 +58,11 @@ Class representing one diff operation (equal, insert or delete) in the list of d
 
 | Name | Returns | Summary |
 |---|---|---|
-| **Clone()** | [DiffOperation\<T\>](#diffoperationt-class)\<T\> | Get the shallow copy of the object. |
+| **Clone()** | [DiffOperation](#diffoperationt-class)\<T\> | Get the shallow copy of the object. |
 | **Equals(Object obj)** | bool | Determines whether two object instances are equal. |
-| **Equals([DiffOperation\<T\>](#diffoperationt-class)\<T\> otherDiff)** | bool |  |
+| **Equals([DiffOperation](#diffoperationt-class)\<T\> otherDiff)** | bool |  |
 | **GetHashCode()** | int | Get the hash code. |
-| **ToList()** | [DiffOperationList\<T\>](#diffoperationlistt-class)\<T\> | Create the new list of diff operations containing this object. |
+| **ToList()** | [DiffOperationList](#diffoperationlistt-class)\<T\> | Create the new list of diff operations containing this object. |
 | **ToString()** | string | Return a human-readable string of this Diff. |
 # DiffOperationList<T> Class
 
@@ -76,31 +76,31 @@ means: delete "Hello", add "Goodbye" and keep " world."
 
 | Name | Type | Summary |
 |---|---|---|
-| **LevenshteinDistance** | int | Compute the Levenshtein distance; \<see href="https://en.wikipedia.org/wiki/Levenshtein_distance"\>Wikipedia article here\</see\><br>the number of inserted, deleted or substituted items. |
+| **LevenshteinDistance** | int | Compute the Levenshtein distance;  [Wikipedia article here](https://en.wikipedia.org/wiki/Levenshtein_distance) <br>the number of inserted, deleted or substituted items. |
 ## Constructors
 
 | Name | Summary |
 |---|---|
 | **DiffOperationList\<T\>()** | Default constructor. |
-| **DiffOperationList\<T\>([DiffOperation\<T\>](#diffoperationt-class)\<T\>[] objs)** | Create the diff list from diff operation objects. |
+| **DiffOperationList\<T\>([DiffOperation](#diffoperationt-class)\<T\>[] objs)** | Create the diff list from diff operation objects. |
 ## Methods
 
 | Name | Returns | Summary |
 |---|---|---|
-| **Add([DiffOperation\<T\>](#diffoperationt-class)\<T\> diff)** | void | Add an operation object. |
-| **AddFirst([DiffOperation\<T\>](#diffoperationt-class)\<T\> diff)** | void | Insert the operation object as the first item in the list. |
-| **AddRange([DiffOperationList\<T\>](#diffoperationlistt-class)\<T\> other)** | void |  |
+| **Add([DiffOperation](#diffoperationt-class)\<T\> diff)** | void | Add an operation object. |
+| **AddFirst([DiffOperation](#diffoperationt-class)\<T\> diff)** | void | Insert the operation object as the first item in the list. |
+| **AddRange([DiffOperationList](#diffoperationlistt-class)\<T\> other)** | void |  |
 | **CleanupMerge()** | void | Reorder and merge like edit sections.<br>Any edit section can move as long as it doesn't cross an equality. |
-| **Clone()** | [DiffOperationList\<T\>](#diffoperationlistt-class)\<T\> | Clone the list. |
+| **Clone()** | [DiffOperationList](#diffoperationlistt-class)\<T\> | Clone the list. |
 | **Equals(Object obj)** | bool | Determines whether two object instances are equal. |
-| **Equals([DiffOperationList\<T\>](#diffoperationlistt-class)\<T\> list)** | bool |  |
+| **Equals([DiffOperationList](#diffoperationlistt-class)\<T\> list)** | bool |  |
 | **GetHashCode()** | int |  |
 | **ToString()** | string | Return the minimal debug string. Show only the number of items in the list. |
 ## Fields
 
 | Name | Type | Summary |
 |---|---|---|
-| **Diffs** | List\<[DiffOperation\<T\>](#diffoperationt-class)\<T\>\> | The list of diff operations. |
+| **Diffs** | List\<[DiffOperation](#diffoperationt-class)\<T\>\> | The list of diff operations. |
 # DiffOperationType Enum
 
 Namespace: LoxSmoke.DiffEngine
@@ -151,10 +151,10 @@ Extension methods for the generic item sequences.
 
 | Name | Returns | Summary |
 |---|---|---|
-| **As(T sequence, [DiffOperationType](#diffoperationtype-enum) operation)** | [DiffOperation\<T\>](#diffoperationt-class)\<T\> | Create DiffOperation object from the specified item sequence |
-| **AsDelete(T sequence)** | [DiffOperation\<T\>](#diffoperationt-class)\<T\> | Create "Delete" DiffOperation object from the specified item sequence |
-| **AsEqual(T sequence)** | [DiffOperation\<T\>](#diffoperationt-class)\<T\> | Create "Equal" DiffOperation object from the specified item sequence |
-| **AsInsert(T sequence)** | [DiffOperation\<T\>](#diffoperationt-class)\<T\> | Create "Insert" DiffOperation object from the specified item sequence |
+| **As(T sequence, [DiffOperationType](#diffoperationtype-enum) operation)** | [DiffOperation](#diffoperationt-class)\<T\> | Create DiffOperation object from the specified item sequence |
+| **AsDelete(T sequence)** | [DiffOperation](#diffoperationt-class)\<T\> | Create "Delete" DiffOperation object from the specified item sequence |
+| **AsEqual(T sequence)** | [DiffOperation](#diffoperationt-class)\<T\> | Create "Equal" DiffOperation object from the specified item sequence |
+| **AsInsert(T sequence)** | [DiffOperation](#diffoperationt-class)\<T\> | Create "Insert" DiffOperation object from the specified item sequence |
 | **IsEmpty(T sequence)** | bool | Check if item sequence is empty. |
 | **Left(T sequence, int count)** | T | Get the sequence of elements on the left. |
 | **LeftExcept(T sequence, int length)** | T | Get the copy of the seqnece with the specified number of items removes. |
@@ -279,7 +279,7 @@ JSON item.
 
 Namespace: LoxSmoke.DiffEngine.Sequences.Json
 
-Base class: [ItemList<T1, T2>](#itemlistt1-t2-class)<[JsonItemSequence](#jsonitemsequence-class), [JsonItem](#jsonitem-class)>
+Base class: [ItemList](#itemlistt1-t2-class)<[JsonItemSequence](#jsonitemsequence-class), [JsonItem](#jsonitem-class)>
 
 The list of JSON item objects.
 
@@ -339,7 +339,7 @@ The sequence of characters also known as string.
 
 Namespace: LoxSmoke.DiffEngine.Sequences.TextFile
 
-Base class: [ItemList<T1, T2>](#itemlistt1-t2-class)<[StringSequence](#stringsequence-class), int>
+Base class: [ItemList](#itemlistt1-t2-class)<[StringSequence](#stringsequence-class), int>
 
 The sequence of strings. 
 Represents the text file where each element is the line of the file.
@@ -406,7 +406,7 @@ XML item.
 
 Namespace: LoxSmoke.DiffEngine.Sequences.Xml
 
-Base class: [ItemList<T1, T2>](#itemlistt1-t2-class)<[XmlItemSequence](#xmlitemsequence-class), [XmlItem](#xmlitem-class)>
+Base class: [ItemList](#itemlistt1-t2-class)<[XmlItemSequence](#xmlitemsequence-class), [XmlItem](#xmlitem-class)>
 
 Sequence of XML items.
 
