@@ -59,7 +59,7 @@ Class representing one diff operation (equal, insert or delete) in the list of d
 | Name | Returns | Summary |
 |---|---|---|
 | **Clone()** | [DiffOperation](#diffoperationt-class)\<T\> | Get the shallow copy of the object. |
-| **Equals(Object obj)** | bool | Determines whether two object instances are equal. |
+| **Equals([Object](https://docs.microsoft.com/en-us/dotnet/api/system.object) obj)** | bool | Determines whether two object instances are equal. |
 | **Equals([DiffOperation](#diffoperationt-class)\<T\> otherDiff)** | bool |  |
 | **GetHashCode()** | int | Get the hash code. |
 | **ToList()** | [DiffOperationList](#diffoperationlistt-class)\<T\> | Create the new list of diff operations containing this object. |
@@ -92,7 +92,7 @@ means: delete "Hello", add "Goodbye" and keep " world."
 | **AddRange([DiffOperationList](#diffoperationlistt-class)\<T\> other)** | void |  |
 | **CleanupMerge()** | void | Reorder and merge like edit sections.<br>Any edit section can move as long as it doesn't cross an equality. |
 | **Clone()** | [DiffOperationList](#diffoperationlistt-class)\<T\> | Clone the list. |
-| **Equals(Object obj)** | bool | Determines whether two object instances are equal. |
+| **Equals([Object](https://docs.microsoft.com/en-us/dotnet/api/system.object) obj)** | bool | Determines whether two object instances are equal. |
 | **Equals([DiffOperationList](#diffoperationlistt-class)\<T\> list)** | bool |  |
 | **GetHashCode()** | int |  |
 | **ToString()** | string | Return the minimal debug string. Show only the number of items in the list. |
@@ -100,7 +100,7 @@ means: delete "Hello", add "Goodbye" and keep " world."
 
 | Name | Type | Summary |
 |---|---|---|
-| **Diffs** | List\<[DiffOperation](#diffoperationt-class)\<T\>\> | The list of diff operations. |
+| **Diffs** | [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<[DiffOperation](#diffoperationt-class)\<T\>\> | The list of diff operations. |
 # DiffOperationType Enum
 
 Namespace: LoxSmoke.DiffEngine
@@ -128,7 +128,7 @@ Namespace: LoxSmoke.DiffEngine
 
 | Name | Returns | Summary |
 |---|---|---|
-| **Equals(Object obj)** | bool | Determines whether two object instances are equal. |
+| **Equals([Object](https://docs.microsoft.com/en-us/dotnet/api/system.object) obj)** | bool | Determines whether two object instances are equal. |
 | **Equals(MatchStruct other)** | bool |  |
 | **GetHashCode()** | int |  |
 | **SwappedShortLong()** | MatchStruct |  |
@@ -169,17 +169,17 @@ Generic list extension methods.
 
 | Name | Returns | Summary |
 |---|---|---|
-| **CommonOverlapLength(List\<T\> list1, List\<T\> list2)** | int | Get the common overlap length of two lists. |
-| **CommonPrefix(List\<T\> list, List\<T\> otherList)** | List\<T\> | Find and return the common prefix of the two lists. |
-| **CommonSuffix(List\<T\> list, List\<T\> otherList)** | List\<T\> | Find and return the common suffix of the two lists. |
-| **Concat(List\<T\> list, List\<T\> otherList)** | List\<T\> | Return the concatenation of the two lists.<br>If one of the lists is empty then method does not create the copy of the list but <br>returns one that is not empty. |
-| **EndsWith(List\<T\> list, List\<T\> otherList)** | bool | Check if the list ends with the other list. |
-| **FragmentEquals(List\<T\> list, int from, int len, List\<T\> otherList, int otherListStart)** | bool | Check if the part of the list equals to the part of another list. |
-| **IndexOf(List\<T\> list, List\<T\> patternList, int startIndex)** | int | Find the specified sequence of the items in the list. |
-| **IndexOf(List\<T\> list, int start, int len, List\<T\> patternList, int patternStart, int patternLen)** | int | Find the specified sequence of the items in the list. |
-| **Left(List\<T\> list, int count)** | List\<T\> | Get the specified number of the items at the start of the list.<br>Function does not modify the list. |
-| **Right(List\<T\> list, int count)** | List\<T\> | Get the specified number of the items at the end of the list.<br>Function does not modify the list. |
-| **StartsWith(List\<T\> list, List\<T\> otherList)** | bool | Determines whether the beginning of the list matches a specified list. |
+| **CommonOverlapLength([List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> list1, [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> list2)** | int | Get the common overlap length of two lists. |
+| **CommonPrefix([List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> list, [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> otherList)** | [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> | Find and return the common prefix of the two lists. |
+| **CommonSuffix([List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> list, [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> otherList)** | [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> | Find and return the common suffix of the two lists. |
+| **Concat([List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> list, [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> otherList)** | [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> | Return the concatenation of the two lists.<br>If one of the lists is empty then method does not create the copy of the list but <br>returns one that is not empty. |
+| **EndsWith([List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> list, [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> otherList)** | bool | Check if the list ends with the other list. |
+| **FragmentEquals([List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> list, int from, int len, [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> otherList, int otherListStart)** | bool | Check if the part of the list equals to the part of another list. |
+| **IndexOf([List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> list, [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> patternList, int startIndex)** | int | Find the specified sequence of the items in the list. |
+| **IndexOf([List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> list, int start, int len, [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> patternList, int patternStart, int patternLen)** | int | Find the specified sequence of the items in the list. |
+| **Left([List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> list, int count)** | [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> | Get the specified number of the items at the start of the list.<br>Function does not modify the list. |
+| **Right([List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> list, int count)** | [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> | Get the specified number of the items at the end of the list.<br>Function does not modify the list. |
+| **StartsWith([List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> list, [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T\> otherList)** | bool | Determines whether the beginning of the list matches a specified list. |
 # StringExtensions Class
 
 Namespace: LoxSmoke.DiffEngine.Extensions
@@ -230,7 +230,7 @@ type as generic parameters. For example class MySequence : ItemList&lt;MySequenc
 
 | Name | Type | Summary |
 |---|---|---|
-| **Data** | List\<T2\> | The list of the items. |
+| **Data** | [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<T2\> | The list of the items. |
 | **Length** | int | The number of items in the list. |
 ## Methods
 
@@ -263,7 +263,7 @@ JSON item.
 
 | Name | Returns | Summary |
 |---|---|---|
-| **Equals(Object obj)** | bool | Determines whether two object instances are equal. |
+| **Equals([Object](https://docs.microsoft.com/en-us/dotnet/api/system.object) obj)** | bool | Determines whether two object instances are equal. |
 | **Equals([JsonItem](#jsonitem-class) token)** | bool | Determines whether two object instances are equal. |
 | **GetHashCode()** | int |  |
 | **ToPrettyText(bool doIndent)** | string |  |
@@ -274,7 +274,7 @@ JSON item.
 |---|---|---|
 | **TokenType** | JsonToken | Token type. |
 | **Depth** | int | Token depth. Useful for diff operations. |
-| **Value** | Object | The token value. |
+| **Value** | [Object](https://docs.microsoft.com/en-us/dotnet/api/system.object) | The token value. |
 # JsonItemSequence Class
 
 Namespace: LoxSmoke.DiffEngine.Sequences.Json
@@ -287,13 +287,13 @@ The list of JSON item objects.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Data** | List\<[JsonItem](#jsonitem-class)\> | The list of the items. |
+| **Data** | [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<[JsonItem](#jsonitem-class)\> | The list of the items. |
 | **Length** | int | The number of items in the list. |
 ## Methods
 
 | Name | Returns | Summary |
 |---|---|---|
-| **Equals(Object obj)** | bool | Determines whether two object instances are equal. |
+| **Equals([Object](https://docs.microsoft.com/en-us/dotnet/api/system.object) obj)** | bool | Determines whether two object instances are equal. |
 | **Equals([JsonItemSequence](#jsonitemsequence-class) obj)** | bool | Determines whether two object instances are equal. |
 | **GetHashCode()** | int |  |
 | **Load(string fileName)** | [JsonItemSequence](#jsonitemsequence-class) | Load data from specified JSON input file |
@@ -322,7 +322,7 @@ The sequence of characters also known as string.
 | **CommonSuffix([CharSequence](#charsequence-class) sequence)** | [CharSequence](#charsequence-class) |  |
 | **Concat([CharSequence](#charsequence-class) other)** | [CharSequence](#charsequence-class) |  |
 | **EndsWith([CharSequence](#charsequence-class) sequence)** | bool |  |
-| **Equals(Object obj)** | bool | Determines whether two object instances are equal. |
+| **Equals([Object](https://docs.microsoft.com/en-us/dotnet/api/system.object) obj)** | bool | Determines whether two object instances are equal. |
 | **Equals([CharSequence](#charsequence-class) sequence)** | bool | Determines whether two object instances are equal. |
 | **GetHashCode()** | int |  |
 | **IndexOf([CharSequence](#charsequence-class) sequence, int startFrom)** | int |  |
@@ -348,30 +348,30 @@ Represents the text file where each element is the line of the file.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Lines** | IEnumerable\<string\> | Get all the text lines of this sequence. |
-| **Data** | List\<int\> | The list of the items. |
+| **Lines** | [IEnumerable](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1)\<string\> | Get all the text lines of this sequence. |
+| **Data** | [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<int\> | The list of the items. |
 | **Length** | int | The number of items in the list. |
 ## Constructors
 
 | Name | Summary |
 |---|---|
-| **StringSequence(List\<int\> lineHashes, List\<string\> uniqueLines)** | Create the sequence of strings. |
+| **StringSequence([List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<int\> lineHashes, [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<string\> uniqueLines)** | Create the sequence of strings. |
 ## Methods
 
 | Name | Returns | Summary |
 |---|---|---|
 | **Concat([StringSequence](#stringsequence-class) other)** | [StringSequence](#stringsequence-class) | Return the concatenation of two sequences. |
-| **Equals(Object obj)** | bool | Determines whether two object instances are equal. |
+| **Equals([Object](https://docs.microsoft.com/en-us/dotnet/api/system.object) obj)** | bool | Determines whether two object instances are equal. |
 | **Equals([StringSequence](#stringsequence-class) other)** | bool | Determines whether two object instances are equal. |
 | **GetHashCode()** | int |  |
 | **Load(string fileName1, string fileName2)** | ([StringSequence](#stringsequence-class) firstFile, [StringSequence](#stringsequence-class) secondFile) | Load two text files as string sequences for comparison.<br>String sequences for both files share the same unique string list. |
-| **Load(IEnumerable\<string\> lines1, IEnumerable\<string\> lines2)** | ([StringSequence](#stringsequence-class) firstFile, [StringSequence](#stringsequence-class) secondFile) | Load two string enumerations as string sequences for comparison.<br>String sequences the same unique string list. |
-| **Load(Dictionary\<string, int\> allLineHashes, List\<string\> allLines, IEnumerable\<string\> lines)** | List\<int\> | Read the list of lines, add unique lines to the dictionary and return the list of hashes. |
+| **Load([IEnumerable](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1)\<string\> lines1, [IEnumerable](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1)\<string\> lines2)** | ([StringSequence](#stringsequence-class) firstFile, [StringSequence](#stringsequence-class) secondFile) | Load two string enumerations as string sequences for comparison.<br>String sequences the same unique string list. |
+| **Load([Dictionary](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2)\<string, int\> allLineHashes, [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<string\> allLines, [IEnumerable](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1)\<string\> lines)** | [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<int\> | Read the list of lines, add unique lines to the dictionary and return the list of hashes. |
 ## Fields
 
 | Name | Type | Summary |
 |---|---|---|
-| **UniqueLines** | List\<string\> | The list of unique text strings. Index of the string in the list is used as a pseudo-hash code. |
+| **UniqueLines** | [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<string\> | The list of unique text strings. Index of the string in the list is used as a pseudo-hash code. |
 # XmlItem Class
 
 Namespace: LoxSmoke.DiffEngine.Sequences.Xml
@@ -382,7 +382,7 @@ XML item.
 
 | Name | Type | Summary |
 |---|---|---|
-| **NodeType** | XmlNodeType |  |
+| **NodeType** | [XmlNodeType](https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlnodetype) |  |
 | **Depth** | int |  |
 | **Empty** | bool |  |
 | **HasAttributes** | bool |  |
@@ -393,12 +393,12 @@ XML item.
 | Name | Summary |
 |---|---|
 | **XmlItem()** | Default constructor. |
-| **XmlItem(XmlNodeType type, int depth, bool empty, bool hasAttributes, string name, string value)** |  |
+| **XmlItem([XmlNodeType](https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlnodetype) type, int depth, bool empty, bool hasAttributes, string name, string value)** |  |
 ## Methods
 
 | Name | Returns | Summary |
 |---|---|---|
-| **Equals(Object obj)** | bool | Determines whether two object instances are equal. |
+| **Equals([Object](https://docs.microsoft.com/en-us/dotnet/api/system.object) obj)** | bool | Determines whether two object instances are equal. |
 | **Equals([XmlItem](#xmlitem-class) token)** | bool | Determines whether two object instances are equal. |
 | **GetHashCode()** | int | Auto-generated hash code function. |
 | **ToString()** | string |  |
@@ -414,15 +414,15 @@ Sequence of XML items.
 
 | Name | Type | Summary |
 |---|---|---|
-| **Data** | List\<[XmlItem](#xmlitem-class)\> | The list of the items. |
+| **Data** | [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<[XmlItem](#xmlitem-class)\> | The list of the items. |
 | **Length** | int | The number of items in the list. |
 ## Methods
 
 | Name | Returns | Summary |
 |---|---|---|
-| **Equals(Object obj)** | bool | Determines whether two object instances are equal. |
+| **Equals([Object](https://docs.microsoft.com/en-us/dotnet/api/system.object) obj)** | bool | Determines whether two object instances are equal. |
 | **Equals([XmlItemSequence](#xmlitemsequence-class) other)** | bool | Determines whether two object instances are equal. |
 | **GetHashCode()** | int |  |
 | **Load(string fileName, bool trimTextWhitespace)** | [XmlItemSequence](#xmlitemsequence-class) | Load the XML file as a sequence of XML items. |
-| **Load(TextReader textReader, bool trimTextWhitespace)** | [XmlItemSequence](#xmlitemsequence-class) | Load the XML file as a sequence of XML items. |
+| **Load([TextReader](https://docs.microsoft.com/en-us/dotnet/api/system.io.textreader) textReader, bool trimTextWhitespace)** | [XmlItemSequence](#xmlitemsequence-class) | Load the XML file as a sequence of XML items. |
 | **LoadFromString(string text, bool trimTextWhitespace)** | [XmlItemSequence](#xmlitemsequence-class) | Read the XML string as a sequence of XML items. |
