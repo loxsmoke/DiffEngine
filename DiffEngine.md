@@ -13,7 +13,7 @@ Created by
 | [DiffOperationType Enum](#diffoperationtype-enum) | [ItemList\<T1, T2\> Class](#itemlistt1-t2-class) | [XmlItemSequence Class](#xmlitemsequence-class) |
 | [MatchStruct Class](#matchstruct-class) | [JsonItem Class](#jsonitem-class) |   |
 | [ItemSequenceExtensions Class](#itemsequenceextensions-class) | [JsonItemSequence Class](#jsonitemsequence-class) |   |
-# DiffFinder<T> Class
+# DiffFinder\<T\> Class
 
 Namespace: LoxSmoke.DiffEngine
 
@@ -33,7 +33,7 @@ Generic difference finder. Compares two sequences of elements and finds equaliti
 | **Bisect(T sequence1, T sequence2)** | [DiffOperationList](#diffoperationlistt-class)\<T\> | Find the 'middle snake' of a diff, split the problem in two<br>and return the recursively constructed diff.<br>See Myers 1986 paper: An O(ND) Difference Algorithm and Its Variations. |
 | **CreateDiffList(T sequence1, T sequence2)** | [DiffOperationList](#diffoperationlistt-class)\<T\> | Find the differences between two sequences. |
 | **HalfMatch(T sequence1, T sequence2)** | MatchStruct |  |
-# DiffOperation<T> Class
+# DiffOperation\<T\> Class
 
 Namespace: LoxSmoke.DiffEngine
 
@@ -64,7 +64,7 @@ Class representing one diff operation (equal, insert or delete) in the list of d
 | **GetHashCode()** | int | Get the hash code. |
 | **ToList()** | [DiffOperationList](#diffoperationlistt-class)\<T\> | Create the new list of diff operations containing this object. |
 | **ToString()** | string | Return a human-readable string of this Diff. |
-# DiffOperationList<T> Class
+# DiffOperationList\<T\> Class
 
 Namespace: LoxSmoke.DiffEngine
 
@@ -194,7 +194,7 @@ String extension methods.
 | **CommonSuffix(string text1, string text2)** | string | Determine the common suffix of two strings. |
 | **Left(string text, int length)** | string | Get the specified number of the leftmost characters of the string. |
 | **Right(string text, int length)** | string | Get the specified number of the rightmost characters of the string. |
-# IItemSequence<T> Class
+# IItemSequence\<T\> Class
 
 Namespace: LoxSmoke.DiffEngine.Interfaces
 
