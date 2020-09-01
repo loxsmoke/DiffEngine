@@ -1,7 +1,7 @@
 # DiffEngine.dll v.0.0.1.0 API documentation
 
 Created by 
-[mddox](https://github.com/loxsmoke/mddox) on 8/29/2020
+[mddox](https://github.com/loxsmoke/mddox) on 8/31/2020
 
 # All types
 
@@ -219,7 +219,7 @@ Sequence of elements that can be compared.
 | **ItemEquals(int index, T otherSequence, int otherIndex)** | bool | Return true if item at the specified index is equal to the  <br>item at otherIndex position in other sequence. |
 | **Mid(int from, int length)** | T | Get the middle of the sequence. |
 | **StartsWith(T sequence)** | bool | True if sequence starts with all elements in the specified sequence. |
-# ItemList<T1, T2> Class
+# ItemList\<T1, T2\> Class
 
 Namespace: LoxSmoke.DiffEngine.Sequences.Generic
 
