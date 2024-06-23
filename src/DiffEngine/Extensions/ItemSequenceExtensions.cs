@@ -34,7 +34,7 @@ namespace LoxSmoke.DiffEngine.Extensions
             return sequence.Mid(0, count);
         }
         /// <summary>
-        /// Get the copy of the seqnece with the specified number of items removes.
+        /// Get the copy of the seqnece with the specified number of items removed.
         /// </summary>
         /// <param name="sequence">The sequence of items</param>
         /// <param name="length"></param>

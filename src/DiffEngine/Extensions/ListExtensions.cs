@@ -61,7 +61,7 @@ namespace LoxSmoke.DiffEngine.Extensions
         /// <returns>The concatenated list or one of the non-empty lists.</returns>
         public static List<T> Concat<T>(this List<T> list, List<T> otherList)
         {
-            if (object.ReferenceEquals(otherList, null) || otherList.Count == 0) return list;
+            if (otherList is null || otherList.Count == 0) return list;
             if (list.Count == 0) return otherList;
             var newList = new List<T>(list.Count + otherList.Count);
             newList.AddRange(list);

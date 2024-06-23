@@ -16,24 +16,6 @@ namespace LoxSmoke.DiffEngine
         public DiffOperationType Operation { get; set; }
 
         /// <summary>
-        /// Operation type as an upper case string.
-        /// </summary>
-        public string OperationText
-        {
-            get
-            {
-                switch (Operation)
-                {
-                    case DiffOperationType.Delete:
-                        return "DELETE";
-                    case DiffOperationType.Insert:
-                        return "INSERT";
-                }
-                return "EQUAL";
-            }
-        }
-
-        /// <summary>
         /// The data associated with this diff operation. It is the sequence of items that were either added, unchanged or deleted 
         /// from the original sequence. When comparing strings this property contains the sequence of characters.
         /// </summary>
@@ -78,7 +60,7 @@ namespace LoxSmoke.DiffEngine
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{OperationText}:{Contents.ToString()}";
+            return $"{Operation}:{Contents.ToString()}";
         }
 
         /// <summary>
@@ -86,7 +68,7 @@ namespace LoxSmoke.DiffEngine
         /// </summary>
         /// <param name="obj">The object to compare with the current object.</param>
         /// <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
-        public override bool Equals(Object obj)
+        public override bool Equals(object obj)
         {
             return Equals(obj as DiffOperation<T>);
         }

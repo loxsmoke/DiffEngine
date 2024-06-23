@@ -1,6 +1,7 @@
 ﻿using LoxSmoke.DiffEngine.Extensions;
 using LoxSmoke.DiffEngine.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace LoxSmoke.DiffEngine

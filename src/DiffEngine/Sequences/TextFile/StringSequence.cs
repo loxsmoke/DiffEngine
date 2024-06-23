@@ -13,7 +13,7 @@ namespace LoxSmoke.DiffEngine.Sequences.TextFile
     /// Represents the text file where each element is the line of the file.
     /// </summary>
     public class StringSequence :
-        ItemList<StringSequence, int>
+        ItemList<StringSequence, (int hash, int index)>
     {
         /// <summary>
         /// The list of unique text strings. Index of the string in the list is used as a pseudo-hash code.
@@ -23,7 +23,7 @@ namespace LoxSmoke.DiffEngine.Sequences.TextFile
         /// <summary>
         /// Get all the text lines of this sequence. 
         /// </summary>
-        public IEnumerable<string> Lines => Data.Select(index => UniqueLines[index]);
+        public IEnumerable<string> Lines => Data.Select(hashIndex => UniqueLines[hashIndex.hash]);
 
         /// <summary>
         /// Create the sequence of strings.
@@ -32,20 +32,9 @@ namespace LoxSmoke.DiffEngine.Sequences.TextFile
         /// <param name="uniqueLines">The list of unique strings.</param>
         public StringSequence(List<int> lineHashes, List<string> uniqueLines)
         {
-            this.Data = lineHashes;
-            this.UniqueLines = uniqueLines;
-        }
-
-        /// <summary>
-        /// Clone this object and replace the list of line hashes with the new list.
-        /// </summary>
-        /// <param name="newLineHashes">The new list of line hashes</param>
-        /// <returns>The clone</returns>
-        protected override StringSequence CloneWith(List<int> newLineHashes)
-        {
-            var clone = base.CloneWith(newLineHashes) as StringSequence;
-            clone.UniqueLines = UniqueLines;
-            return clone;
+            int lineIndex = 0;
+            Data = lineHashes.Select(n => (hash: n, index: lineIndex++)).ToList();
+            UniqueLines = uniqueLines;
         }
 
         /// <summary>
@@ -118,9 +107,9 @@ namespace LoxSmoke.DiffEngine.Sequences.TextFile
             var allLineHashes = new Dictionary<string, int>();
             var allLines = new List<string>();
 
-            var hashes1 = Load(allLineHashes, allLines, lines1);
-            var hashes2 = Load(allLineHashes, allLines, lines2);
-            return (new StringSequence(hashes1, allLines), new StringSequence(hashes2, allLines));
+            var textHashes1 = Load(allLineHashes, allLines, lines1);
+            var textHashes2 = Load(allLineHashes, allLines, lines2);
+            return (new StringSequence(textHashes1, allLines), new StringSequence(textHashes2, allLines));
         }
 
         /// <summary>
@@ -147,6 +136,11 @@ namespace LoxSmoke.DiffEngine.Sequences.TextFile
                 hashes.Add(value);
             }
             return hashes;
+        }
+
+        public override string ToString()
+        {
+            return $"count={Data.Count} uniq={UniqueLines.Count}";
         }
     }
 }
