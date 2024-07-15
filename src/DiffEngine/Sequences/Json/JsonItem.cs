@@ -82,15 +82,14 @@ namespace LoxSmoke.DiffEngine.Sequences.Json
                 case JsonToken.Comment:
                     return indent + $"\\*{Value}*\\";
                 case JsonToken.Raw:
-                    return indent + $"{Value}";
                 case JsonToken.Integer:
-                    return indent + $"{Value}";
                 case JsonToken.Float:
+                case JsonToken.Boolean:
+                case JsonToken.Date:
+                case JsonToken.Bytes:
                     return indent + $"{Value}";
                 case JsonToken.String:
                     return indent + $"\"{Value}\"";
-                case JsonToken.Boolean:
-                    return indent + $"{Value}";
                 case JsonToken.Null:
                     return indent + "null";
                 case JsonToken.Undefined:
@@ -101,10 +100,6 @@ namespace LoxSmoke.DiffEngine.Sequences.Json
                     return indent + $"]";
                 case JsonToken.EndConstructor:
                     return indent + $"Coonstructor {Value}";
-                case JsonToken.Date:
-                    return indent + $"{Value}";
-                case JsonToken.Bytes:
-                    return indent + $"{Value}";
             }
             return $"{Depth}: {TokenType} {Value}";
         }

@@ -13,7 +13,7 @@ namespace LoxSmoke.DiffEngine.Sequences.TextFile
     /// Represents the text file where each element is the line of the file.
     /// </summary>
     public class StringSequence :
-        ItemList<StringSequence, (int hash, int index)>
+        ItemList<StringSequence, int>
     {
         /// <summary>
         /// The list of unique text strings. Index of the string in the list is used as a pseudo-hash code.
@@ -23,7 +23,7 @@ namespace LoxSmoke.DiffEngine.Sequences.TextFile
         /// <summary>
         /// Get all the text lines of this sequence. 
         /// </summary>
-        public IEnumerable<string> Lines => Data.Select(hashIndex => UniqueLines[hashIndex.hash]);
+        public IEnumerable<string> Lines => Data.Select(index => UniqueLines[index]);
 
         /// <summary>
         /// Create the sequence of strings.
@@ -32,8 +32,7 @@ namespace LoxSmoke.DiffEngine.Sequences.TextFile
         /// <param name="uniqueLines">The list of unique strings.</param>
         public StringSequence(List<int> lineHashes, List<string> uniqueLines)
         {
-            int lineIndex = 0;
-            Data = lineHashes.Select(n => (hash: n, index: lineIndex++)).ToList();
+            Data = lineHashes;
             UniqueLines = uniqueLines;
         }
 

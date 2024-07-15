@@ -106,6 +106,12 @@ namespace LoxSmoke.DiffEngine
             return diffList;
         }
 
+        /// <summary>
+        /// Compare lengths of sequences and return the pair (shorter, longer)
+        /// </summary>
+        /// <param name="sequence1"></param>
+        /// <param name="sequence2"></param>
+        /// <returns></returns>
         static (T shorter, T longer) ShortLong(T sequence1, T sequence2)
         {
             return sequence1.Length > sequence2.Length ? (sequence2, sequence1) : (sequence1, sequence2);

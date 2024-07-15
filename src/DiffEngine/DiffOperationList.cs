@@ -90,7 +90,7 @@ namespace LoxSmoke.DiffEngine
         /// <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
         public bool Equals(DiffOperationList<T> list)
         {
-            if (object.ReferenceEquals(list, null)) return false;
+            if (list is null) return false;
             if (object.ReferenceEquals(this, list) &&
                 Diffs == null && list.Diffs == null)
                 return true;

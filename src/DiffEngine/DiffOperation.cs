@@ -60,7 +60,7 @@ namespace LoxSmoke.DiffEngine
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{Operation}:{Contents.ToString()}";
+            return $"{Operation}: {Contents}";
         }
 
         /// <summary>
