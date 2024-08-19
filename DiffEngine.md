@@ -1,18 +1,17 @@
-# DiffEngine.dll v.0.0.1.0 API documentation
+# DiffEngine.dll v.0.0.2.0 API documentation
 
-Created by 
-[mddox](https://github.com/loxsmoke/mddox) on 8/31/2020
+Created by [mddox](https://github.com/loxsmoke/mddox) on 8/18/2024
 
 # All types
 
 |   |   |   |
 |---|---|---|
-| [DiffFinder\<T\> Class](#difffindert-class) | [ListExtensions Class](#listextensions-class) | [CharSequence Class](#charsequence-class) |
-| [DiffOperation\<T\> Class](#diffoperationt-class) | [StringExtensions Class](#stringextensions-class) | [StringSequence Class](#stringsequence-class) |
-| [DiffOperationList\<T\> Class](#diffoperationlistt-class) | [IItemSequence\<T\> Class](#iitemsequencet-class) | [XmlItem Class](#xmlitem-class) |
-| [DiffOperationType Enum](#diffoperationtype-enum) | [ItemList\<T1, T2\> Class](#itemlistt1-t2-class) | [XmlItemSequence Class](#xmlitemsequence-class) |
-| [MatchStruct Class](#matchstruct-class) | [JsonItem Class](#jsonitem-class) |   |
-| [ItemSequenceExtensions Class](#itemsequenceextensions-class) | [JsonItemSequence Class](#jsonitemsequence-class) |   |
+| [DiffFinder\<T\> Class](#difffindert-class) | [DiffFinderExtensions Class](#difffinderextensions-class) | [DiffOperation\<T\> Class](#diffoperationt-class) |
+| [DiffOperationList\<T\> Class](#diffoperationlistt-class) | [DiffOperationType Enum](#diffoperationtype-enum) | [MatchStruct Class](#matchstruct-class) |
+| [ItemSequenceExtensions Class](#itemsequenceextensions-class) | [ListExtensions Class](#listextensions-class) | [StringExtensions Class](#stringextensions-class) |
+| [IItemSequence\<T\> Interface](#iitemsequencet-interface) | [ItemList\<T1, T2\> Class](#itemlistt1-t2-class) | [JsonItem Class](#jsonitem-class) |
+| [JsonItemSequence Class](#jsonitemsequence-class) | [CharSequence Class](#charsequence-class) | [StringSequence Class](#stringsequence-class) |
+| [XmlItem Class](#xmlitem-class) | [XmlItemSequence Class](#xmlitemsequence-class) |   |
 # DiffFinder\<T\> Class
 
 Namespace: LoxSmoke.DiffEngine
@@ -33,6 +32,17 @@ Generic difference finder. Compares two sequences of elements and finds equaliti
 | **Bisect(T sequence1, T sequence2)** | [DiffOperationList](#diffoperationlistt-class)\<T\> | Find the 'middle snake' of a diff, split the problem in two<br>and return the recursively constructed diff.<br>See Myers 1986 paper: An O(ND) Difference Algorithm and Its Variations. |
 | **CreateDiffList(T sequence1, T sequence2)** | [DiffOperationList](#diffoperationlistt-class)\<T\> | Find the differences between two sequences. |
 | **HalfMatch(T sequence1, T sequence2)** | MatchStruct |  |
+# DiffFinderExtensions Class
+
+Namespace: LoxSmoke.DiffEngine
+
+DiffFinder extension methods
+
+## Methods
+
+| Name | Returns | Summary |
+|---|---|---|
+| **Compare([DiffFinder](#difffindert-class)\<[StringSequence](#stringsequence-class)\> finder, [IEnumerable](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1)\<string\> sequence1, [IEnumerable](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1)\<string\> sequence2)** | [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<([DiffOperationType](#diffoperationtype-enum) diff, string line, int index1, int index2)\> | Compares two sequences of strings and returns a list of differences between them.<br>The method identifies lines that are inserted, deleted, or unchanged between the two sequences <br>and records the index positions from both sequences. <br>It processes each difference and its contents line by line, updating the indices accordingly. |
 # DiffOperation\<T\> Class
 
 Namespace: LoxSmoke.DiffEngine
@@ -44,7 +54,6 @@ Class representing one diff operation (equal, insert or delete) in the list of d
 | Name | Type | Summary |
 |---|---|---|
 | **Operation** | [DiffOperationType](#diffoperationtype-enum) | One of: Insert, Delete or Equal. |
-| **OperationText** | string | Operation type as an upper case string. |
 | **Contents** | T | The data associated with this diff operation. It is the sequence of items that were either added, unchanged or deleted <br>from the original sequence. When comparing strings this property contains the sequence of characters. |
 | **IsInsert** | bool | True if this is an insert operation. |
 | **IsDelete** | bool | True if this is a delete operation. |
@@ -119,6 +128,7 @@ The type of the diff operation
 Namespace: LoxSmoke.DiffEngine
 
 
+
 ## Constructors
 
 | Name | Summary |
@@ -157,7 +167,7 @@ Extension methods for the generic item sequences.
 | **AsInsert(T sequence)** | [DiffOperation](#diffoperationt-class)\<T\> | Create "Insert" DiffOperation object from the specified item sequence |
 | **IsEmpty(T sequence)** | bool | Check if item sequence is empty. |
 | **Left(T sequence, int count)** | T | Get the sequence of elements on the left. |
-| **LeftExcept(T sequence, int length)** | T | Get the copy of the seqnece with the specified number of items removes. |
+| **LeftExcept(T sequence, int length)** | T | Get the copy of the seqnece with the specified number of items removed. |
 | **RightFrom(T sequence, int from)** | T | Get the part of the sequence starting from the specified 0-based index. |
 # ListExtensions Class
 
@@ -194,7 +204,7 @@ String extension methods.
 | **CommonSuffix(string text1, string text2)** | string | Determine the common suffix of two strings. |
 | **Left(string text, int length)** | string | Get the specified number of the leftmost characters of the string. |
 | **Right(string text, int length)** | string | Get the specified number of the rightmost characters of the string. |
-# IItemSequence\<T\> Class
+# IItemSequence\<T\> Interface
 
 Namespace: LoxSmoke.DiffEngine.Interfaces
 
@@ -250,7 +260,7 @@ type as generic parameters. For example class MySequence : ItemList&lt;MySequenc
 
 Namespace: LoxSmoke.DiffEngine.Sequences.Json
 
-JSON item. 
+JSON item.
 
 ## Properties
 
@@ -367,6 +377,7 @@ Represents the text file where each element is the line of the file.
 | **Load(string fileName1, string fileName2)** | ([StringSequence](#stringsequence-class) firstFile, [StringSequence](#stringsequence-class) secondFile) | Load two text files as string sequences for comparison.<br>String sequences for both files share the same unique string list. |
 | **Load([IEnumerable](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1)\<string\> lines1, [IEnumerable](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1)\<string\> lines2)** | ([StringSequence](#stringsequence-class) firstFile, [StringSequence](#stringsequence-class) secondFile) | Load two string enumerations as string sequences for comparison.<br>String sequences the same unique string list. |
 | **Load([Dictionary](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2)\<string, int\> allLineHashes, [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<string\> allLines, [IEnumerable](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1)\<string\> lines)** | [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)\<int\> | Read the list of lines, add unique lines to the dictionary and return the list of hashes. |
+| **ToString()** | string | Returns human-readable minimalist presentation |
 ## Fields
 
 | Name | Type | Summary |

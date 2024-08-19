@@ -18,4 +18,4 @@ dotnet-property DiffEngine.csproj AssemblyVersion:%1.0
 dotnet-property DiffEngine.csproj FileVersion:%1.0
 dotnet build -c Release
 popd
-move ..\src\DiffEngine\bin\release\LoxSmoke.DiffEngine.%PACKAGE_VERSION%.nupkg
+move ..\src\DiffEngine\nupkg\LoxSmoke.DiffEngine.%PACKAGE_VERSION%.nupkg

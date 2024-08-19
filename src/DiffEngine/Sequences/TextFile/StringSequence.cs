@@ -1,10 +1,7 @@
-﻿using LoxSmoke.DiffEngine.Extensions;
-using LoxSmoke.DiffEngine.Sequences.Generic;
-using System;
+﻿using LoxSmoke.DiffEngine.Sequences.Generic;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace LoxSmoke.DiffEngine.Sequences.TextFile
 {
@@ -137,6 +134,9 @@ namespace LoxSmoke.DiffEngine.Sequences.TextFile
             return hashes;
         }
 
+        /// <summary>
+        /// Returns human-readable minimalist presentation
+        /// </summary>
         public override string ToString()
         {
             return $"count={Data.Count} uniq={UniqueLines.Count}";
